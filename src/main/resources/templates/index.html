@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rubicon - Spring Boot</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <div>Zadanie 1 - Wczytanie danych</div>
+    <div class="client">
+        <div class="customer">Klinet</div>
+        <div class="country">Kraj</div>
+        <div class="order">Zamówienie</div>
+        <div class="status">Status</div>
+        <div  class="group">Grupa</div>
+        <div  class="file">Typ pliku</div>
+    </div>
+    <div th:each="client : ${clients}" class="client">
+        <div th:text="${client.customer}" class="customer"></div>
+        <div th:text="${client.country}" class="country"></div>
+        <div th:text="${client.order}" class="order"></div>
+        <div th:text="${client.status}" class="status"></div>
+        <div th:text="${client.group}" class="group"></div>
+        <div th:text="${client.typeOfFile}" class="file"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rubicon - Ranking</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <div>Zadanie 2 - Ranking 30 najlepiej sprzedających się leków (pogrupowane po nazwie leku - kolumna "Order")
+    </div>
+    <div class="client">
+        <div class="customer">Lek</div>
+        <div class="country">Ilość</div>
+    </div>
+    <div th:each="order : ${orders}" class="client">
+        <div th:text="${order.order}" class="order"></div>
+        <div th:text="${order.quantity}" class="different"></div>
+    </div>
+</div>
+</body>
+</html>

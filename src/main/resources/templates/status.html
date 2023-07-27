@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rubicon - Spring Boot</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+<div th:replace="~{fragments.html :: logo}"></div>
+<div th:replace="~{fragments.html :: menu}"></div>
+<div id="content">
+    <div>Zadanie 4 - dla każdego rodzaju statusu matrymolnianego - określi czy ludzi z takim statusem było więcej w pliku CSV,
+        w pliku JSON, czy w pliku LDIF Jeśli w dwóch lub trzech jest ta sama największa liczba -
+        powinny zostać wyświetlone odpowiednio wszystkie symbole plików. </div>
+    <div class="client">
+        <div class="customer">Status</div>
+        <div class="country">Ilość</div>
+        <div class="country">Typ pliku</div>
+    </div>
+    <div th:each="status : ${statuses}" class="client">
+        <div th:text="${status.getStatus()}" class="status"></div>
+        <div th:text="${status.getQuantity()}" class="different"></div>
+        <div th:text="${status.getTypeOfFile()}" class="file"></div>
+    </div>
+</div>
+</body>
+</html>
